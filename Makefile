@@ -19,7 +19,7 @@ resolve-git:
 	git fetch -t
 	git fetch origin master
 	git fetch --all
-	git describe --abbrev=0 --tags
+	echo $(git branch)
 
 .PHONY: clean
 clean:
