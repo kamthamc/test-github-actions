@@ -34,4 +34,6 @@ build-js: clean
 	sed -i -e 's/0.0.1/$(GIT_TAG)/g' package.json
 	protoc --proto_path=$(PROTO_PATH) -I=. $(PROTO_PATH)/*.proto --js_out=import_style=commonjs:$(BUILD_JS_DIR) \
 		--grpc-web_out=import_style=commonjs+dts,mode=grpcwebtext:$(BUILD_JS_DIR) && ls -la $(BUILD_JS_DIR)
+	cat package.json
+	ls -la $(BUILD_JS_DIR)
     
