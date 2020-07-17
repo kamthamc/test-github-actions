@@ -29,14 +29,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Get the version
-        id: get_version
-        uses: actions/github-script@0.2.0
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            return context.payload.ref.replace(/\/refs\/tags\//, '');
-      - run: echo ${{ steps.tag.outputs.result }}
       - uses: actions/setup-node@v1
         with:
           node-version: 12
@@ -46,7 +38,7 @@ jobs:
       - name: build protoc
         run: make build-js
         env:
-          GIT_TAG: ${{ steps.get_version.outputs.VERSION }}
+          GIT_TAG: ${{ github.event.release.tag_name }}
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
