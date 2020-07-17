@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "description": "Chaitanya Test Proto",
   "main": "dist/js/index.js",
-  "scripts": {
-    
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kamthamc/test-github-actions.git"
