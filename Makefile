@@ -27,6 +27,7 @@ clean:
 build-js: clean
 	mkdir -p $(BUILD_JS_DIR)
 	sed -i -e 's/0.0.1/$(VERSION)/g' package.json
+	cat package.json
 	protoc --proto_path=$(PROTO_PATH) -I=. $(PROTO_PATH)/*.proto --js_out=import_style=commonjs:$(BUILD_JS_DIR) \
 		--grpc-web_out=import_style=commonjs+dts,mode=grpcwebtext:$(BUILD_JS_DIR) && ls -la $(BUILD_JS_DIR)
     
