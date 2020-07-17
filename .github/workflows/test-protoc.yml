@@ -34,6 +34,7 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
+      - run: git fetch -t
       - run: make setup-protobuf
       - name: build protoc
         run: make build-js

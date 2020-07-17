@@ -1,3 +1,4 @@
+GIT_TAG = $(shell git describe --tags)
 BUILD_JS_DIR = dist/build-js
 PROTO_PATH = protobuf
 
