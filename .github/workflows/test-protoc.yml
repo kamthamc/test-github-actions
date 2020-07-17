@@ -34,7 +34,7 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
-      - run: git fetch -t && git fetch origin && git remote -v
+      - run: make resolve-git
       - run: make setup-protobuf
       - run: make build-js
       - run: npm publish
