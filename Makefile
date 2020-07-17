@@ -1,6 +1,6 @@
 # GIT_TAG = $(shell git describe --abbrev=0 --tags)
 GIT_TAG = $(shell git describe --tags `git rev-list --tags --max-count=1`)
-BUILD_JS_DIR = dist/build-js
+BUILD_JS_DIR = dist/js
 PROTO_PATH = protobuf
 
 
@@ -34,6 +34,4 @@ build-js: clean
 	sed -i -e 's/0.0.1/$(GIT_TAG)/g' package.json
 	protoc --proto_path=$(PROTO_PATH) -I=. $(PROTO_PATH)/*.proto --js_out=import_style=commonjs:$(BUILD_JS_DIR) \
 		--grpc-web_out=import_style=commonjs+dts,mode=grpcwebtext:$(BUILD_JS_DIR) && ls -la $(BUILD_JS_DIR)
-	cat package.json
-	ls -la $(BUILD_JS_DIR)
     
