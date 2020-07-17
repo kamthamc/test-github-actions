@@ -26,8 +26,7 @@ clean:
 .PHONY: build-js
 build-js: clean
 	mkdir -p $(BUILD_JS_DIR)
-	cp package.json $(BUILD_JS_DIR)/package.json
-	sed 's/0.0.1/$(VERSION)/g' $(BUILD_JS_DIR)/package.json  $(BUILD_JS_DIR)/package.json
+	sed -i -e 's/0.0.1/$(VERSION)/g' package.json
 	protoc --proto_path=$(PROTO_PATH) -I=. $(PROTO_PATH)/*.proto --js_out=import_style=commonjs:$(BUILD_JS_DIR) \
 		--grpc-web_out=import_style=commonjs+dts,mode=grpcwebtext:$(BUILD_JS_DIR) && ls -la $(BUILD_JS_DIR)
     
