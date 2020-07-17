@@ -25,10 +25,6 @@ jobs:
   #       env:
   #         NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
-  - name: Get the version
-    id: get_version
-    run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
-  
   publish-gpr:
     runs-on: ubuntu-latest
     steps:
@@ -37,6 +33,9 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
       - run: npm ci
       - run: make setup-protobuf
       - name: build proto
