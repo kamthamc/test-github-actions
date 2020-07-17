@@ -6,12 +6,12 @@ PROTO_PATH = protobuf
 
 .PHONY: setup-protobuf
 setup-protobuf:
-	wget https://github.com/protocolbuffers/protobuf/releases/download/v$(PROTOC_VERSION)/protoc-$(PROTOC_VERSION)-linux-x86_64.zip -O /tmp/protoc.zip
+	wget "https://github.com/protocolbuffers/protobuf/releases/download/v${PROTOC_VERSION}/protoc-${PROTOC_VERSION}-linux-x86_64.zip" -O /tmp/protoc.zip
 	unzip /tmp/protoc.zip -d /tmp/protoc
 	sudo mv /tmp/protoc/bin/protoc /usr/local/bin/protoc
 	sudo chmod +x /usr/local/bin/protoc
 
-	wget https://github.com/grpc/grpc-web/releases/download/$(PROTOC_GEN_GRPC_WEB_VERSION)/protoc-gen-grpc-web-$(PROTOC_GEN_GRPC_WEB_VERSION)-linux-x86_64 -O /tmp/protoc-gen-grpc-web
+	wget "https://github.com/grpc/grpc-web/releases/download/$(PROTOC_GEN_GRPC_WEB_VERSION)/protoc-gen-grpc-web-${PROTOC_GEN_GRPC_WEB_VERSION}-linux-x86_64" -O /tmp/protoc-gen-grpc-web
 	sudo mv /tmp/protoc-gen-grpc-web /usr/local/bin/protoc-gen-grpc-web
 	sudo chmod +x /usr/local/bin/protoc-gen-grpc-web
 
