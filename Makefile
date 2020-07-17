@@ -24,7 +24,9 @@ clean:
 
 .PHONY: build-js
 build-js: clean
-	git fetch && git describe --tags
+	git fetch -t
+	git remote -v
+	git describe --tags
 	mkdir -p $(BUILD_JS_DIR)
 	sed -i -e 's/0.0.1/$(GIT_TAG)/g' package.json
 	cat package.json
