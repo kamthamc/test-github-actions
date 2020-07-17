@@ -26,6 +26,7 @@ clean:
 .PHONY: build-js
 build-js: clean
 	mkdir -p $(BUILD_JS_DIR)
+	echo "$(GIT_TAG)"
 	sed -i -e 's/0.0.1/$(GIT_TAG)/g' package.json
 	cat package.json
 	protoc --proto_path=$(PROTO_PATH) -I=. $(PROTO_PATH)/*.proto --js_out=import_style=commonjs:$(BUILD_JS_DIR) \
