@@ -1,4 +1,5 @@
 # GIT_TAG = $(shell git describe --abbrev=0 --tags)
+GIT_TAG = $(shell git describe --tags `git rev-list --tags --max-count=1`)
 BUILD_JS_DIR = dist/build-js
 PROTO_PATH = protobuf
 
@@ -16,8 +17,7 @@ setup-protobuf:
 
 .PHONY: resolve-git
 resolve-git:
-	git fetch -t
-	git fetch origin master
+	git fetch --all --tags
 
 .PHONY: clean
 clean:
