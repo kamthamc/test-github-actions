@@ -9,7 +9,7 @@
     "url": "git+https://github.com/kamthamc/test-github-actions.git"
   },
   "files": [
-    "dist-js/js/*"
+    "dist/js/*"
   ],
   "author": "Chaitanya K Kamatham<74nyjqk+5pbxnaf+wylo7lx+oo3lrwf@kchaitanya.com>",
   "license": "UNLICENSED",
