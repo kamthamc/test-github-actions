@@ -36,8 +36,7 @@ jobs:
       - run: npm ci
       - run: git fetch -t
       - run: make setup-protobuf
-      - name: build protoc
-        run: make build-js
+      - run: make build-js
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
