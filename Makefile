@@ -14,6 +14,12 @@ setup-protobuf:
 	sudo mv /tmp/protoc-gen-grpc-web /usr/local/bin/protoc-gen-grpc-web
 	sudo chmod +x /usr/local/bin/protoc-gen-grpc-web
 
+.PHONY resolve-git
+resolve-git:
+	git fetch -t
+	git remote -v
+	git fetch -all
+	git describe --abbrev=0 --tags
 
 .PHONY: clean
 clean:
