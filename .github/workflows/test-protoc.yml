@@ -34,9 +34,15 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)        
       - run: npm ci
       - run: make setup-protobuf
-      - run: make build-js
+      - name: build protoc
+        run: make build-js
+        env:
+          GIT_TAG: ${{ steps.get_version.outputs.VERSION }}
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

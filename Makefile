@@ -1,4 +1,3 @@
-GIT_TAG = $(shell git describe --tags)
 BUILD_JS_DIR = dist/build-js
 PROTO_PATH = protobuf
 
@@ -25,7 +24,6 @@ clean:
 
 .PHONY: build-js
 build-js: clean
-	git describe --tags
 	mkdir -p $(BUILD_JS_DIR)
 	sed -i -e 's/0.0.1/$(GIT_TAG)/g' package.json
 	cat package.json
