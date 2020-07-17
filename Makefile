@@ -16,6 +16,7 @@ setup-protobuf:
 
 .PHONY: resolve-git
 resolve-git:
+	git fetch -t
 	git fetch --all
 	git describe --abbrev=0 --tags
 
