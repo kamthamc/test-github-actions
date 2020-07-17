@@ -1,0 +1,22 @@
+{
+  "name": "@kamthamc/test-proto-js",
+  "version": "0.0.1",
+  "description": "Chaitanya Test Proto",
+  "main": "dist/js/index.js",
+  "scripts": {
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamthamc/test-github-actions.git"
+  },
+  "files": [
+    "dist-js/js/*"
+  ],
+  "author": "Chaitanya K Kamatham<74nyjqk+5pbxnaf+wylo7lx+oo3lrwf@kchaitanya.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/kamthamc/test-github-actions"
+  },
+  "homepage": "https://github.com/kamthamc/test-github-actions#readme"
+}
