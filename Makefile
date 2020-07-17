@@ -2,8 +2,8 @@
 GIT_TAG = $(shell git describe --tags `git rev-list --tags --max-count=1`)
 BUILD_JS_DIR = dist/js
 PROTO_PATH = protobuf
-PROTOC_GEN_GRPC_WEB_VERSION = 3.12.3
-PROTOC_VERSION = 1.2.0
+PROTOC_GEN_GRPC_WEB_VERSION = 1.2
+PROTOC_VERSION = 3.12.0
 
 
 .PHONY: setup-protobuf
