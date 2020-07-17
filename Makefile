@@ -1,4 +1,4 @@
-GIT_TAG =  $(shell git describe --abbrev=0 --tags)
+GIT_TAG = $(shell git describe --abbrev=0 --tags)
 BUILD_JS_DIR = dist/build-js
 PROTO_PATH = protobuf
 
