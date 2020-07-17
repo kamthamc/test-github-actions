@@ -10,7 +10,8 @@ setup-protobuf:
 	sudo mv /tmp/protoc/bin/protoc /usr/local/bin/protoc
 	sudo chmod +x /usr/local/bin/protoc
 
-	wget https://github.com/grpc/grpc-web/releases/download/1.2.0/protoc-gen-grpc-web-1.2.0-linux-x86_64 -O /usr/local/bin/protoc-gen-grpc-web
+	wget https://github.com/grpc/grpc-web/releases/download/1.2.0/protoc-gen-grpc-web-1.2.0-linux-x86_64 -O /tmp/protoc-gen-grpc-web
+	sudo mv /tmp/protoc-gen-grpc-web /usr/local/bin/protoc-gen-grpc-web
 	sudo chmod +x /usr/local/bin/protoc-gen-grpc-web
 
 
