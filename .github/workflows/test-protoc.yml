@@ -40,9 +40,6 @@ jobs:
       - run: make setup-protobuf
       - name: build proto
         run: make build-js
-        env:
-          PROTOC_VERSION: 3.12.3
-          PROTOC_GEN_GRPC_WEB_VERSION: 1.2.0
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
