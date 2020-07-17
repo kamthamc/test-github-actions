@@ -17,7 +17,7 @@ setup-protobuf:
 .PHONY: resolve-git
 resolve-git:
 	git fetch -t
-	git fetch origin master
+	git checkout origin/master
 
 .PHONY: clean
 clean:
