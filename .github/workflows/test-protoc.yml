@@ -37,8 +37,14 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
       - run: make resolve-git
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
       - run: make setup-protobuf
-      - run: make build-js
+      - name: build proto
+        run: make build-js
+        env:
+          GIT_TAG: ${{ steps.vars.outputs.tag }}
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
