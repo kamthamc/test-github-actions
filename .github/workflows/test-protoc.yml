@@ -22,7 +22,7 @@ jobs:
       - run: rm -rf package-lock.json
       - run: yarn init --yes
       - name: install dependencies
-        run: yarn add @batchx/proto-js
+        run: yarn add @batchx/proto-js --registry=https://npm.pkg.github.com
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 #   publish-gpr:
