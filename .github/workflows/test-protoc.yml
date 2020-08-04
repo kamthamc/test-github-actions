@@ -11,35 +11,34 @@ on:
     types: [published]
 
 jobs:
-  # publish-npm:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v1
-  #       with:
-  #         node-version: 12
-  #         registry-url: https://registry.npmjs.org/
-  #     - run: npm ci
-  #     - run: npm publish
-  #       env:
-  #         NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-
-  publish-gpr:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          ref: master
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: make resolve-git
-      - run: make setup-protobuf
-      - name: build proto
-        run: make build-js
-      - run: npm publish
+          node-version: '12.x'
+      - run: yarn init --yes
+      - name: install dependencies
+        run: yarn add @batchx/proto-js
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+#   publish-gpr:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#         with:
+#           ref: master
+#       - uses: actions/setup-node@v1
+#         with:
+#           node-version: 12
+#           registry-url: https://npm.pkg.github.com/
+#       - run: npm ci
+#       - run: make resolve-git
+#       - run: make setup-protobuf
+#       - name: build proto
+#         run: make build-js
+#       - run: npm publish
+#         env:
+#           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
