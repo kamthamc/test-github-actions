@@ -20,9 +20,9 @@ jobs:
         with:
           node-version: '12.x'
       - run: rm -rf package-lock.json
-      - run: yarn init --yes
+      - run: yarn init --yes && yarn config set registry "https://npm.pkg.github.com/batchx"
       - name: install dependencies
-        run: yarn add @batchx/proto-js --registry=https://npm.pkg.github.com
+        run: yarn add @batchx/proto-js
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 #   publish-gpr:
