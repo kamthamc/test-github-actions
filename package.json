@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/kamthamc/test-github-actions"
   },
-  "homepage": "https://github.com/kamthamc/test-github-actions#readme"
+  "homepage": "https://github.com/kamthamc/test-github-actions#readme",
+  "dependencies": {
+    "@batchx/proto-js": "^2.2.3"
+  }
 }
